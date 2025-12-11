@@ -45,7 +45,7 @@ export const EcommerceTemplate = ({
   const { hasCollections, loading: loadingCollections } = useCollections()
 
   const header = (
-    <div className={`py-2 ${headerClassName}`}>
+    <div className={`py-4 ${headerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
@@ -53,26 +53,26 @@ export const EcommerceTemplate = ({
 
           {/* Navigation */}
           <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex space-x-6">
+            <nav className="flex space-x-8">
               {!loadingCollections && hasCollections && (
                 <ScrollLink 
                   to="/#collections" 
-                  className="text-foreground/70 hover:text-foreground transition-colors"
+                  className="text-foreground/70 hover:text-primary transition-colors font-medium"
                 >
-                  Collections
+                  Gift Sets
                 </ScrollLink>
               )}
               <ScrollLink 
                 to="/#products" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors font-medium"
               >
-                Products
+                Fragrances
               </ScrollLink>
               <Link 
                 to="/blog" 
-                className="text-foreground/70 hover:text-foreground transition-colors"
+                className="text-foreground/70 hover:text-primary transition-colors font-medium"
               >
-                Blog
+                Journal
               </Link>
             </nav>
           </div>
@@ -86,12 +86,12 @@ export const EcommerceTemplate = ({
                 variant="ghost"
                 size="icon"
                 onClick={openCart}
-                className="relative"
-                aria-label="Ver carrito"
+                className="relative hover:bg-primary/10"
+                aria-label="View cart"
               >
                 <ShoppingCart className="h-5 w-5" />
                 {totalItems > 0 && (
-                  <span className="absolute -top-2 -right-2 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-primary text-primary-foreground text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
                     {totalItems > 99 ? '99+' : totalItems}
                   </span>
                 )}
@@ -113,45 +113,51 @@ export const EcommerceTemplate = ({
   )
 
   const footer = (
-    <div className={`bg-black text-white py-12 ${footerClassName}`}>
+    <div className={`bg-[hsl(var(--dark-bg))] text-background py-16 ${footerClassName}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Brand */}
           <div>
-            <BrandLogoLeft />
-            <p className="mt-4 text-white/70">
-              Your trusted online store
+            <div className="text-3xl font-serif font-bold text-background mb-4">NOTA</div>
+            <p className="text-background/70 leading-relaxed">
+              Artisanal home fragrances that transform spaces into sensorial sanctuaries.
             </p>
           </div>
 
           {/* Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Links</h3>
-            <div className="space-y-2">
+            <h3 className="font-semibold mb-4 text-background text-lg">Explore</h3>
+            <div className="space-y-3">
               <Link 
                 to="/" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-primary transition-colors"
               >
-                Home
+                Our Collection
               </Link>
               <Link 
                 to="/blog" 
-                className="block text-white/70 hover:text-white transition-colors"
+                className="block text-background/70 hover:text-primary transition-colors"
               >
-                Blog
+                Fragrance Journal
+              </Link>
+              <Link 
+                to="/#scent-families" 
+                className="block text-background/70 hover:text-primary transition-colors"
+              >
+                Scent Families
               </Link>
             </div>
           </div>
 
           {/* Social Links */}
           <div>
-            <h3 className="font-semibold mb-4 text-white">Follow Us</h3>
+            <h3 className="font-semibold mb-4 text-background text-lg">Connect</h3>
             <SocialLinks />
           </div>
         </div>
 
-        <div className="mt-8 pt-8 border-t border-white/20 text-center text-white/70">
-          <p>&copy; 2025 Your Store. All rights reserved.</p>
+        <div className="mt-12 pt-8 border-t border-background/20 text-center text-background/60">
+          <p>&copy; 2025 NOTA. Crafted with care.</p>
         </div>
       </div>
     </div>
